@@ -10,8 +10,8 @@ ua/epam/rd/domain/Pizza.class
 ua/epam/rd/web/AbstractPizzaContoller$1.class
 ua/epam/rd/web/HelloSpringMVC.class
 ua/epam/rd/web/PizzaController.class
-ua/epam/rd/domain/OrderCalculator.class
 ua/epam/rd/web/OrderRESTController$1.class
+ua/epam/rd/service/OrderCalculator.class
 ua/epam/rd/repository/CustomerRepository.class
 ua/epam/rd/service/CustomerService.class
 ua/epam/rd/repository/JPACustomerRepository.class

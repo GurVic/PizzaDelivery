@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import ua.epam.rd.domain.*;
 import ua.epam.rd.service.CustomerService;
+import ua.epam.rd.service.OrderCalculator;
 import ua.epam.rd.service.OrderService;
 
 import java.util.HashMap;

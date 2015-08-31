@@ -5,7 +5,6 @@
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/web/NotFoundPizzaException.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/repository/CustomerRepository.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/domain/Price.java
-/home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/domain/OrderCalculator.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/web/PizzaController.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/domain/OrderStatus.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/web/GlobalErrorHandler.java
@@ -28,6 +27,7 @@
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/web/OrderRESTController.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/web/NotFoundOrderException.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/domain/AccumulativeCard.java
+/home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/service/OrderCalculator.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/service/OrderService.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/domain/Customer.java
 /home/victor/IdeaProjects/PizzaDeliveryServiceCopy/src/main/java/ua/epam/rd/repository/OrderRepository.java

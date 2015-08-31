@@ -1,7 +1,10 @@
 package ua.epam.rd.domain;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import ua.epam.rd.service.OrderCalculator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,10 +18,16 @@ public class CalculatorTest {
 
 	@Mock
 	private AccumulativeCard mockedCard;
-	
+
+    @Before
+    public void testMock() {
+        MockitoAnnotations.initMocks(this);
+    }
+
 	@Test(expected = IllegalArgumentException.class)
 	public void testCalculatePriceWithoutAnyPizzaThrowException() {
-		Map<Pizza, Integer> pizzas = new HashMap<>();
+        System.out.println(mockedCard);
+        Map<Pizza, Integer> pizzas = new HashMap<>();
 		OrderCalculator calculator = new OrderCalculator();
 		calculator.calcPrice(pizzas, mockedCard);
 	}
@@ -49,10 +58,10 @@ public class CalculatorTest {
 		double pizzaPrice = 10.0;
 		pizzas.put(new Pizza("Test", pizzaPrice, PizzaType.Sea), 1);
 		double expectedPrice = 10.0;
-		
+
 		OrderCalculator calculator = new OrderCalculator();
 		Price price = calculator.calcPrice(pizzas, mockedCard);
-		
+
 		assertEquals(expectedPrice, price.getPrice(), DELTA);
 	}
 	
@@ -64,13 +73,13 @@ public class CalculatorTest {
 			pizzas.put(new Pizza("Test" + i, pizzaPrice, PizzaType.Meat), 1);
 		}
 		double expectedPrice = 40.0;
-		
+
 		OrderCalculator calculator = new OrderCalculator();
 		Price price = calculator.calcPrice(pizzas, mockedCard);
-		
+
 		assertEquals(expectedPrice, price.getPrice(), DELTA);
 	}
-	
+
 	@Test
 	public void testCalculatePriceOrderedWithOneDiscountedPizzaNoDiscountCard() {
 		Map<Pizza, Integer> pizzas = new HashMap<>();
