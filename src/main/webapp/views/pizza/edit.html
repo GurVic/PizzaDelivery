@@ -1,0 +1,21 @@
+﻿<!-- Представление для редактирования -->
+<div class="pannel-body">
+    <form method="post">
+        <input type="hidden" name="id" ng-model="currentItem.id" />
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" ng-model="currentItem.name" />
+        </div>
+        <div class="form-group">
+            <label>Price:</label>
+            <input class="form-control" ng-model="currentItem.price" />
+        </div>
+        <div class="form-group">
+            <label>Type:</label>
+            <select ng-model="currentItem.type" ng-options="o as o for o in pizzaTypes"></select>
+        </div>
+
+        <button class="btn btn-primary" ng-click="saveEdit(currentItem)">Save</button> <!--Сохранение изменений-->
+        <button class="btn btn-primary" ng-click="cancelEdit()">Cancel</button> <!--Отмена правок-->
+    </form>
+</div>

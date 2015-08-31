@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - pizzas_delivery@localhost" uuid="38d2ee2c-ad3f-4d4b-8983-ec7b3f6d1b0f">
+    <database-info product="MySQL" version="5.5.43-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="pizzas_delivery"/>
+    <table name="Orders" schema="" catalog="pizzas_delivery" type="TABLE">
+      <column name="order_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="discount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="orderStatus" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="address_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="customer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="order_id"/>
+      <foreign-key name="FK_1s9ynj9dday3ag96e601vphgn" columns="address_id" ref-table="address" ref-schema="" ref-catalog="pizzas_delivery" ref-columns="address_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_hi1sbt52iwcwwk2g3bck4hekx" columns="customer_id" ref-table="customer" ref-schema="" ref-catalog="pizzas_delivery" ref-columns="customer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_9gap2fmw66v092ntb58rtohwh" table="order_items" schema="" catalog="pizzas_delivery" columns="order_id"/>
+      <index name="FK_1s9ynj9dday3ag96e601vphgn" unique="false" columns="address_id"/>
+      <index name="FK_hi1sbt52iwcwwk2g3bck4hekx" unique="false" columns="customer_id"/>
+    </table>
+    <table name="accumulative_card" schema="" catalog="pizzas_delivery" type="TABLE">
+      <column name="acc_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="sum" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="customer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="acc_id"/>
+      <foreign-key name="FK_7t666vsa63p04wbrd0nhqi37v" columns="customer_id" ref-table="customer" ref-schema="" ref-catalog="pizzas_delivery" ref-columns="customer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_7t666vsa63p04wbrd0nhqi37v" unique="false" columns="customer_id"/>
+    </table>
+    <table name="address" schema="" catalog="pizzas_delivery" type="TABLE">
+      <column name="address_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="address_line1" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address_line2" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zip_code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="address_id"/>
+      <exported-key name="FK_1s9ynj9dday3ag96e601vphgn" table="Orders" schema="" catalog="pizzas_delivery" columns="address_id"/>
+    </table>
+    <table name="customer" schema="" catalog="pizzas_delivery" type="TABLE">
+      <column name="customer_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="customer_id"/>
+      <exported-key name="FK_hi1sbt52iwcwwk2g3bck4hekx" table="Orders" schema="" catalog="pizzas_delivery" columns="customer_id"/>
+      <exported-key name="FK_7t666vsa63p04wbrd0nhqi37v" table="accumulative_card" schema="" catalog="pizzas_delivery" columns="customer_id"/>
+    </table>
+    <table name="order_items" schema="" catalog="pizzas_delivery" type="TABLE">
+      <column name="order_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="items" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="pizza_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="order_id,pizza_id"/>
+      <foreign-key name="FK_9gap2fmw66v092ntb58rtohwh" columns="order_id" ref-table="Orders" ref-schema="" ref-catalog="pizzas_delivery" ref-columns="order_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_rii9k8126rhy4ycbh75mueddo" columns="pizza_id" ref-table="pizza" ref-schema="" ref-catalog="pizzas_delivery" ref-columns="pizza_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_rii9k8126rhy4ycbh75mueddo" unique="false" columns="pizza_id"/>
+    </table>
+    <table name="pizza" schema="" catalog="pizzas_delivery" type="TABLE">
+      <column name="pizza_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pizza_id"/>
+      <exported-key name="FK_rii9k8126rhy4ycbh75mueddo" table="order_items" schema="" catalog="pizzas_delivery" columns="pizza_id"/>
+    </table>
+  </data-source>
+</component>
